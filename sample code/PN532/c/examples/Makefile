@@ -1,6 +1,6 @@
 CC = gcc
 DLIBS = -lwiringPi
-INC_DIR = ../../
+INC_DIR = ../
 SRCS = $(wildcard *.c)
 all: $(SRCS:.c=.exe)
 .PHONY: clean
@@ -9,7 +9,7 @@ all: $(SRCS:.c=.exe)
 %.o: %.c
 	$(CC) -Wall -c $^ $(DLIBS) -I$(INC_DIR)
 pn532.o pn532_rpi.o: $(INC_DIR)pn532.c $(INC_DIR)pn532_rpi.c
-	$(CC) -Wall -c $(INC_DIR)pn532.c
-	$(CC) -Wall -c $(INC_DIR)pn532_rpi.c
+	$(CC) -Wall -c $(INC_DIR)pn532.c -o pn532.o
+	$(CC) -Wall -c $(INC_DIR)pn532_rpi.c -o pn532_rpi.o
 clean:
 	rm *.o *.exe
