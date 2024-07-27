@@ -32,5 +32,7 @@ class PN532Controller:
             self.set_led(self.RED_LED, 0)
             self.set_led(self.GREEN_LED, 1)
 
+            return uid.hex()
+
     def set_led(self, led, state):
         self.gpc.set_pin(led, state)
